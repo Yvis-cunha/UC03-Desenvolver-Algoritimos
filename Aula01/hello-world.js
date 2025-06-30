@@ -1,0 +1,1 @@
+console.log ("Hello wold"); //Primeiro código em javascript
