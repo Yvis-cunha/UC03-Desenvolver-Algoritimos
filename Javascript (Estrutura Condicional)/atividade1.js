@@ -12,7 +12,7 @@ maxima = veloPermitido + (veloPermitido*0.10)
 if(veloCarro >= maxima){
     console.log("Atenção: Acima permitdo, multa grave!")
 
-}else if(veloCarro > veloPermitido && veloCarro < maxima){
+}else if(veloCarro > veloPermitido && veloCarro < maxima ){
     console.log("Atenção: Acima permitdo, multa leve!")
 
 }else{
