@@ -6,7 +6,7 @@ let ano
 
 ano = Number (prompt("Digite o ano: "))
 
-if(ano % 4 === 0){
+if((ano % 4 === 0 ) && (ano % 100 !== 0) || ano % 400 === 0){
     console.log("Sim esse é um ano bissexto:", ano)
 
 }else{
