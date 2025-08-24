@@ -6,7 +6,7 @@ let operacao, tipo, valor1, valor2, resultado
 operacao = prompt ("Qual tipo de operação deseja ? 1 para basica e 2 para avançada: ")
 
 if(operacao == 1){
-    tipo = prompt ("Qual tipo de operação deseja => soma, subtração, multiplicação, divisão: ") 
+    tipo = prompt ("Qual tipo de operação deseja => soma, subtração, multiplicação, divisão: ").toLowerCase() 
     valor1 = Number (prompt ("Digite o primeiro número: " ))
     valor2 = Number (prompt ("Digite o segundo número: " ))
 

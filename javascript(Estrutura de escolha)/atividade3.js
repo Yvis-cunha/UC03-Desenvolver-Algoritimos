@@ -3,11 +3,11 @@ const prompt = PromptSync() // variavel do prompt
 
 let pergunta1, pergunta2, pergunta3, pergunta4, pergunta5, positivo = 0, negativo =0
 
-pergunta1 = prompt("Telefonou para a vítima?, sim ou não: ")
-pergunta2 = prompt("Esteve no local do crime?, sim ou não: ")
-pergunta3 = prompt("mora perto da vitima, sim ou não: ")
-pergunta4 = prompt("Devia para a vítima, sim ou não: ")
-pergunta5 = prompt("Já trabalhou com a vítima, sim ou não: ")
+pergunta1 = prompt("Telefonou para a vítima?, sim ou não: ").toLowerCase()
+pergunta2 = prompt("Esteve no local do crime?, sim ou não: ").toLowerCase()
+pergunta3 = prompt("mora perto da vitima, sim ou não: ").toLowerCase()
+pergunta4 = prompt("Devia para a vítima, sim ou não: ").toLowerCase()
+pergunta5 = prompt("Já trabalhou com a vítima, sim ou não: ").toLowerCase()
 
 switch(pergunta1){
     case 'sim':

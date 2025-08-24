@@ -4,7 +4,7 @@ const prompt = PromptSync() // variavel do prompt
 let valor, moeda, convensao, dolar = 5.424, euro = 6.353, peso = 0.0042, libra = 7.326, franco = 6.753
 
 valor = Number (prompt("Digite o valor que deseja converte: R$"))
-moeda = prompt("Digite qual moeda deseja converte => dolar, euro, peso, libra, franco: ").toLocaleLowerCase()
+moeda = prompt("Digite qual moeda deseja converte => dolar, euro, peso, libra, franco: ").toLowerCase()
 
 switch (moeda){
     case "dolar":
