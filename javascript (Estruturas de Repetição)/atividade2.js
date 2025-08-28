@@ -12,8 +12,6 @@ for(i = 0; i  < qtdtermo; i = i + 1){
 
     valorant = valoratual
     valoratual = prox
-
-    //console.log(prox, "")
     sequencia += " " + prox;
 }
 console.log(sequencia);
