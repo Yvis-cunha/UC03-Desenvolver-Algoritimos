@@ -1,17 +1,16 @@
-import PromptSync from "prompt-sync" // Importe do prompt
-const prompt = PromptSync() // variavel do prompt
+import promptSync from "prompt-sync";
+const prompt = promptSync();
 
-let i, qtdtermo, valorant = 0, valoratual = 1, prox
-let sequencia = valorant + " " + valoratual;
+let a = 0, b = 1, proximoTermo; //variaveis
 
-qtdtermo = Number (prompt("Digite quantos termmos deseja visualizar: "))
+let num = Number(prompt("Digite Quantos Termos da SÉRIE DE FIBONACCI, você que Visualizar: "));
+console.log("Série de Fibonacci:");
 
-for(i = 0; i  < qtdtermo; i = i + 1){
-    
-    prox = valorant + valoratual
-
-    valorant = valoratual
-    valoratual = prox
-    sequencia += " " + prox;
+//estrutura de repetição
+for (let i = 1; i <= num; i++) {// ele só vai repetir ate a quantidade de numeros escolhidas
+    console.log(a);
+    proximoTermo = a + b;
+    a = b;
+    b = proximoTermo;//soma do numero com anterior
 }
-console.log(sequencia);
+//ok 
