@@ -7,7 +7,7 @@ let array = []
 let arrayconsoante = []
 
 for(contador=0; contador <= 4; contador = contador + 1){
-    array[contador] = prompt("Digite letras do alfabeto: ")
+    array[contador] = prompt("Digite letras do alfabeto: ").toLocaleLowerCase()
         if(array[contador] != 'a' && array[contador] != 'e' && array[contador] != 'i' && array[contador] != 'o' && array[contador] != 'u'){ //teste para saber se é vogal
             consoantes = consoantes + 1 // adiciona 1 a cada rodada na variabel consoante
                 arrayconsoante.push(array[contador]) //= array[contador]
