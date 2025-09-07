@@ -3,5 +3,6 @@ const prompt = PromptSync() // variavel do prompt
 
 let senha1=['bola123'], senha2=['2025@aluno']
 
-for()
-prompt("Diigte")
+for(contador = 0; contador < 1; contador = contador + 1){
+
+}
