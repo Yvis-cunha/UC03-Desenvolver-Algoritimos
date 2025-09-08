@@ -1,8 +1,19 @@
 import PromptSync from "prompt-sync" // Importe do prompt
 const prompt = PromptSync() // variavel do prompt
 
-let senha1=['bola123'], senha2=['2025@aluno']
+let senhaEntrada1=[], senhaEntrada2=[], senhaEntrada3=[], senhaEntrada4=[]
+let contadorsenha
 
-for(contador = 0; contador < 1; contador = contador + 1){
 
-}
+senhaEntrada1 = prompt("Digite sua senha: ")
+senhaEntrada2 = prompt("Digite sua senha: ")
+senhaEntrada3 = prompt("Digite sua senha: ")
+senhaEntrada4 = prompt("Digite sua senha: ")
+
+
+
+
+console.log(senhaEntrada1)
+console.log(senhaEntrada2)
+console.log(senhaEntrada3)
+console.log(senhaEntrada4)
