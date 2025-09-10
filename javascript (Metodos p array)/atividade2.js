@@ -9,7 +9,7 @@ let arrayestoque = []
 console.log("Array original:")
 console.log(arrayprodutos) // mostrar o array com todas as palvras
 // remover 3 itens da 4 posição
-arrayprodutos.splice(3, 3) 
+arrayprodutos.splice(4, 3) 
 
 console.log("Array com produtos que ficou após a remover os itens com defeitos:")
 console.log(arrayprodutos)
