@@ -1,6 +1,10 @@
-
-export function caminhada (exercicio,tempo){
-    
-    let caminahda = tempo*6
-    return resultado
+//Função para saque
+export function sacar (saldo, valor){
+    saldo = (saldo - valor)
+    return saldo
+}
+//Função para deposito
+export function deposito(saldo, valor){
+    saldo = (saldo + valor)
+    return saldo
 }

@@ -7,6 +7,7 @@ let tempo, resultado
 exercicio = prompt("Qual exercicio, caminahda, corrida ou bicileta ?")
 tempo = Number (prompt("Quanto tempo você executou ?"))
 
+
 function calculo (exercicio, tempo){
     resultado = 0
 

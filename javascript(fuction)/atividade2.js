@@ -1,35 +1,18 @@
 import PromptSync from "prompt-sync" // Importe do prompt
+import {sacar, deposito} from "./funcoes.js"
 const prompt = PromptSync() // variavel do prompt
 
-let saldo=0, valor=0
-let resultado
+let saldo = 150
 
-valor = Number (prompt("Digite o valor que desjea despositar: "))
+let opercao = Number(prompt("Digite 1 para sacar e 2 para depositar"))
 
-function depositar (saldo, valor){
-    saldo = 150
-    resultado = 0
-    resultado = (saldo + valor)
-    return resultado
-}
+if(opercao == 1){
+    let retirada = Number (prompt("Digite o valor que deseja sacar: "))
+    saldo = sacar(saldo, retirada)
+    console.log(saldo)
 
-console.log(depositar(saldo,valor))
-
-
-valor = Number(prompt("Qul o valor deseja sacar: "))
-
-function sacar (saldo, valor){
-    if(valor < resultado){
-        resultado = resultado - valor
-        return resultado
-    }else{
-        console.log("Saldo insuficiente, sua conta possuir um saldo de: R$",resultado)
-    }
-}
-
-console.log(sacar(saldo, valor))
-
-opcao = prompt("Digite 1 para sacar e 2 para depositar: ")
-if(opcao == 1){
-    function sacar (saldo, valor)
+}else if(opercao == 2){
+    let depositar = Number (prompt("Digite o valor que deseja depositar: "))
+    saldo = deposito(saldo, depositar)
+    console.log(saldo)
 }
