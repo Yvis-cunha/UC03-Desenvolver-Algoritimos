@@ -16,10 +16,7 @@ media.forEach((media, indice) => {
     }        
 })
 
-mediageral = media.reduce((acumulador, categoriaAtual, indice) => {
-    return (acumulador + media[indice])    
-}) 
-
+medialaunos = mediageral / media.length
 
 prompt('Digite sim para buscar por aluno e zero para sair')
 if(buscarnome == 'sim'){
@@ -28,10 +25,4 @@ if(buscarnome == 'sim'){
 
 
 
-
-
-
-
-
-// medialaunos = mediageral / media.length
-// console.log(medialaunos.toFixed(2))
+console.log(medialaunos.toFixed(2))
