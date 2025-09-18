@@ -6,7 +6,7 @@ let txt = prompt("digite uma palvra ou frase: ")
 
 function verificarPalindromo(palavra) {
 
-  let nome = palavra.toLowerCase();
+  let nome = palavra.toLowerCase().replaceAll(' ', '')
   let nomeinvertido = nome.split('').reverse().join('');
 
   return nome === nomeinvertido;
