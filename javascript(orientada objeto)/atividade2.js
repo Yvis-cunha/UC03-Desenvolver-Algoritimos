@@ -49,15 +49,26 @@ class Data{
         }
     }
     quantoFaltaFimAno(){
-        this.dia = this.dia - 365 + 90
+        const diasPorMes = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+        let diasRestantesTotal = diasPorMes[this.mes - 1] - this.dia
+        for(let i = this.mes; i < diasPorMes.length; i = i + 1){
+            diasRestantesTotal = diasRestantesTotal + diasPorMes[i]                        
+        }
+          console.log(`Faltam ${diasRestantesTotal} dias para o fim do ano.`)  
     }
 }
 
 let mostrar = new Data() //Variavel para guarda as informações do objeto
 
-mostrar.dia = prompt("Digite o dia: ")
-mostrar.mes = prompt("Digite o mês: ")
-mostrar.ano = prompt("Digite o Ano: ")
+mostrar.dia = Number(prompt("Digite o dia: "))
+mostrar.mes = Number (prompt("Digite o mês: "))
+mostrar.ano = Number (prompt("Digite o Ano: "))
+
+mostrar.escrevaData()
+mostrar.escrevaMes()
+mostrar.quantoFaltaFimAno()
+
+mostrar.mes = 12
 
 mostrar.escrevaData()
 mostrar.escrevaMes()
