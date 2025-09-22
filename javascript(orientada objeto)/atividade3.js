@@ -32,13 +32,22 @@ class Produto{
     }
 }
 let mostrar = new Produto()
+let mostrar1 = new Produto()
+
 
 mostrar.nome = prompt("Digite o nome do produto: ")
-mostrar.preco = Number (prompt("Digite o presço: "))
+mostrar.preco = Number (prompt("Digite o presço: ")).toFixed(2)
 mostrar.quantidadeestoque = Number (prompt("Digite a quantidade de estoque: "))
 mostrar.categoria = prompt("Digite a categoria: ")
 mostrar.disponivel = prompt("Digite se está disponivel a venda: ")
 
 mostrar.exibirinformacoes()
-
 mostrar.definirPresco()
+
+mostrar1.nome = 'aruela'
+mostrar1.preco = 1.50.toFixed(2)
+mostrar1.quantidadeestoque = 75
+mostrar1.categoria = 'Ferragens'
+mostrar1.disponivel = 'disponivel'
+
+mostrar1.exibirinformacoes()
