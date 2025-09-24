@@ -32,6 +32,6 @@ export class cliente{
     }
 }
 //class da atividade 2
-export class contaBacaria{
+export class contaBacaria{//teste
 
 }
