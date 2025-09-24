@@ -1,3 +1,6 @@
+import PromptSync from "prompt-sync" // Importe do prompt
+const prompt = PromptSync() // variavel do prompt
+
 // class da atividae 1
 export class cliente{
     #nome
@@ -32,6 +35,50 @@ export class cliente{
     }
 }
 //class da atividade 2
-export class contaBacaria{//teste
+export class contaBacaria{
+    #nomeTitular
+    #saldo = 0
+    constructor(nomeTitular,saldo,numeroConta, numeroAgencia, dataAbertura){
+        this.#nomeTitular = nomeTitular
+        this.#saldo = saldo
+        this.numeroConta = numeroConta
+        this.numeroAgencia = numeroAgencia
+        this.dataAbertura = dataAbertura
+    }
 
+    set NomeTitular(nometi){
+        this.#nomeTitular = nometi
+    }
+    get NomeTitular(){
+        return this.#nomeTitular
+    }
+    set saldo(sal){
+        this.#saldo = sal
+    }
+    get saldo(){
+        return this.#saldo
+    }
+    sacar(){
+        let valosaque = Number(prompt(`Digite o valor que deseja sacar: `))
+        if(valosaque > 0 && valosaque <= this.#saldo){           
+            this.#saldo = (this.#saldo - valosaque)
+        }else{
+            console.log(`O valor precisar ser menor R$${this.#saldo}`)
+        }
+    }
+    depositar(){
+        let valodeposito = Number(prompt(`Digite o valor que deseja depositar: `))
+        if(valodeposito > 0 ){
+            this.#saldo = (this.#saldo + valodeposito)
+        }else{
+            console.log(`O valor inserido é inválido`)
+        }
+    }
+    calcularrendimento(){
+        this.#saldo = (this.#saldo * 0.10)
+    }
+    versaldo(){
+        console.log(`Seu saldo atual é: ${this.#saldo}`)
+    }
+  
 }
