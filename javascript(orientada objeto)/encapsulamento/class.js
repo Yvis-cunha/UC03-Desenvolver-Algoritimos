@@ -76,9 +76,11 @@ export class contaBacaria{
     }
     calcularrendimento(){
         this.#saldo = (this.#saldo * 0.10)
+        console.log(`Rendimento da conta: ${this.#saldo}`)
     }
     versaldo(){
         console.log(`Seu saldo atual é: ${this.#saldo}`)
     }
+
   
 }
