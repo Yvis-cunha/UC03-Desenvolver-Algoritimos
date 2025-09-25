@@ -4,10 +4,15 @@ import {contaBacaria} from "./class.js"
 
 
 const cliente1 = new contaBacaria(prompt('Nome Titular:'),Number (prompt('Saldo da conta:')),prompt('Número da conta:'),prompt('Número da agencia:'),prompt('Data da abertura da conta:'))
-const cliente2 = new contaBacaria(prompt('Nome Titular:'),Number (prompt('Saldo da conta:')),prompt('Número da conta:'),prompt('Número da agencia:'),prompt('Data da abertura da conta:'))
+const cliente2 = new contaBacaria//(prompt('Nome Titular:'),Number (prompt('Saldo da conta:')),prompt('Número da conta:'),prompt('Número da agencia:'),prompt('Data da abertura da conta:'))
 
+// cliente2.NomeTitular = 'Emanul'
+// cliente2.saldo = 1.518
+// cliente2.numeroConta = 3232
+// cliente2.numeroAgencia = 1
+// cliente2.dataAbertura = '24/09/2025'
 
-// console.log(cliente2.NomeTitular)
+ console.log(`Cliente: ${cliente2.NomeTitular = 'emanuel'}\nSaldo:${cliente2.saldo = 1.518}`)
 
 console.log(`O nome do titular é: ${cliente1.NomeTitular}`)
 console.log(`O nome do titular é: ${cliente2.NomeTitular}`)
