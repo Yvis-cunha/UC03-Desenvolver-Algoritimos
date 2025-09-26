@@ -50,7 +50,7 @@ export class Memoria{
     }
 }
 
-export class processador{
+export class Processador{
     #marca
     #modelo
     #nucleo
@@ -61,7 +61,149 @@ export class processador{
         this.#nucleo = nucleo
         this.#velocidade = velocidade
     }
+    set marca(marcaprocessador){
+        this.#marca = marcaprocessador
+    }
+    get marca(){
+        return this.#marca
+    }
+    set modelo(modeloprocessador){
+        this.#modelo = modeloprocessador
+    }
+    get modelo(){
+        return this.#modelo
+    }
+    set nucleo(nucleoprocessador){
+        this.#nucleo = nucleoprocessador
+    }
+    get nucleo(){
+        return this.#nucleo
+    }
+    set velocidade(vecolidadeprocessador){
+        this.#velocidade = vecolidadeprocessador
+    }
+    get velocidade(){
+        return this.#velocidade
+    }
     executarprograma(){
-        console.log(`O programa `)
+        console.log(`O programa Audacity está em execução:`)
+    }
+}//classe armazenamento
+export class Armazenamento{
+    #tipo
+    #capacidade
+    #espacoultilizado
+    constructor(tipo, capacidade, espacoultilizado){
+        this.#tipo = tipo
+        this.#capacidade = capacidade
+        this.#espacoultilizado = espacoultilizado
+
+    }
+    set tipo(tipoarmazenamento){
+        this.#tipo = tipoarmazenamento
+    }
+    get tipo(){
+        return this.#tipo
+    }
+    set capacidade(capacidadearmazenamento){
+        this.#capacidade = capacidadearmazenamento
+    }
+    get capacidade(){
+        return this.#capacidade
+    }
+    set espacoultilizado(espacoultilizadoarmaze){
+        this.#espacoultilizado = espacoultilizadoarmaze
+    }
+    get espacoultilizado(){
+        return this.#espacoultilizado
+    }
+    espacoLivre(){
+
+    }
+}// casse tela
+export class Tela{
+    #tamanho
+    #resolucao
+    constructor(tamanho, resolucao){
+        this.#tamanho = tamanho
+        this.#resolucao = resolucao
+    }
+    set tamanho(tamanhotela){
+        this.#tamanho = tamanhotela
+    }
+    get tamanho(){
+        return this.#tamanho
+    }
+    set resolucao(resolucaotela){
+        this.#resolucao = resolucaotela
+    }
+    get resolucao(){
+        return this.#resolucao
+    }
+    ligar(){
+        console.log(`A tela está ligada!`)
+    }
+    desligar(){
+        console.log(`A tela está desligada!`)
+    }
+}
+
+export class Computador{
+    #marca
+    #modelo
+    #memoria
+    #processador
+    #armazenamento
+    #tela
+    constructor(marca, modelo, memoria, processador, armazenamento, tela){
+        this.#marca = marca
+        this.#modelo = modelo
+        this.#memoria = memoria
+        this.#processador = processador
+        this.#armazenamento = armazenamento
+        this.#tela = tela
+    }
+    set marca(marcaomputador){
+        this.#marca = marcaomputador
+    }
+    get marca(){
+        return this.#marca
+    }
+    set modelo(modelocomputador){
+        this.#modelo = modelocomputador
+    }
+    get modelo(){
+        return this.#modelo
+    }
+    set memoria(memoriacomputador){
+        this.#memoria = memoriacomputador
+    }
+    get memoria(){
+        return this.#memoria
+    }
+    set processador(processadorcomputador){
+        this.#processador = processadorcomputador
+    }
+    get processador(){
+        return this.#processador
+    }
+    set armazenamento(armazenamentocomputador){
+        this.#armazenamento = armazenamentocomputador
+    }
+    get armazenamento(){
+        return this.#armazenamento
+    }
+    set tela(telacomputador){
+        this.#tela = telacomputador
+    }
+    get tela(){
+        return this.#tela
+    }
+    imprimirfichatenica(){
+        console.log(`
+         ====ficha técnica====
+        Memoria Ram, tipo:${this.#memoria.tipo}
+
+            `)
     }
 }
