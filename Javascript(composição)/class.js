@@ -151,7 +151,7 @@ export class Tela{
 export class Computador{
     #marca
     #modelo
-    #memoria
+    #memoria 
     #processador
     #armazenamento
     #tela
@@ -202,7 +202,7 @@ export class Computador{
     imprimirfichatenica(){
         console.log(`
          ====ficha técnica====
-        Memoria Ram, tipo:${this.#memoria.tipo}
+        Memoria Ram, tipo: ${this.#memoria.tipo} frequencia: ${this.#memoria.frequencia} Capacidade: ${this.#memoria.capacidade}
 
             `)
     }
