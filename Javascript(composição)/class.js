@@ -1,6 +1,8 @@
 import PromptSync from "prompt-sync" // Importe do prompt
 const prompt = PromptSync() // variavel do prompt
 
+let listasoft = []
+
 export class Memoria{
     #tipo
     #frequencia
@@ -10,7 +12,6 @@ export class Memoria{
         this.#frequencia = frequencia
         this.#capacidade = capacidade
     }
-
     // get set do tipo de memoria
     set tipo(tipomemoria){
         this.#tipo = tipomemoria
@@ -18,7 +19,6 @@ export class Memoria{
     get tipo(){
         return this.#tipo
     }
-
     // get set da frenqeuncia
     set frequencia(frequenmemoria){
         this.#frequencia = frequenmemoria
@@ -26,7 +26,6 @@ export class Memoria{
     get frequencia(){
         return this.#frequencia
     }
-
     // get set da capacidade
     set capacidade(capacimemoria){
         this.#capacidade = capacimemoria
@@ -49,7 +48,6 @@ export class Memoria{
         this.#capacidade = (this.#capacidade - qtd)
     }
 }
-
 export class Processador{
     #marca
     #modelo
@@ -86,7 +84,14 @@ export class Processador{
         return this.#velocidade
     }
     executarprograma(){
-        console.log(`O programa Audacity está em execução:`)
+        console.log(listasoft)
+        let programa = prompt("Escolhar um programa acima para execeutar: ")
+        let indice = listasoft.indexOf(programa)
+        if(indice > -1){
+            console.log(`O programa ${programa} Está executando: `)
+        }else{
+            console.log("Programa invalido")
+        }
     }
 }//classe armazenamento
 export class Armazenamento{
@@ -97,7 +102,6 @@ export class Armazenamento{
         this.#tipo = tipo
         this.#capacidade = capacidade
         this.#espacoultilizado = espacoultilizado
-
     }
     set tipo(tipoarmazenamento){
         this.#tipo = tipoarmazenamento
@@ -118,7 +122,8 @@ export class Armazenamento{
         return this.#espacoultilizado
     }
     espacoLivre(){
-
+        let resultado = (this.#capacidade - this.#espacoultilizado)
+        console.log(`O espaço livre em armazenamento é: ${resultado}Gb`)
     }
 }// casse tela
 export class Tela{
@@ -202,8 +207,35 @@ export class Computador{
     imprimirfichatenica(){
         console.log(`
          ====ficha técnica====
-        Memoria Ram, tipo: ${this.#memoria.tipo} frequencia: ${this.#memoria.frequencia} Capacidade: ${this.#memoria.capacidade}
-
-            `)
+        Memoria Ram: => ${this.#memoria.tipo}, frequencia: ${this.#memoria.frequencia}, Capacidade: ${this.#memoria.capacidade}Ghz
+        Processador: => Marca: ${this.#processador.marca}, Modelo: ${this.#processador.modelo}, Nucleos: ${this.#processador.nucleo}, Clock: ${this.#processador.velocidade}
+        Armazenamento: => Tipo: ${this.#armazenamento.tipo}, Capacidade: ${this.#armazenamento.capacidade}Gbs, Espaço Usado: ${this.#armazenamento.espacoultilizado}Gbs
+        Tela: => Polegadas: ${this.#tela.tamanho}, Resolução: ${this.#tela.resolucao}    
+        `)
+    }
+    instalarsoftware(){
+        let  nomeinserir = prompt("\nDigite o nome do software que deseja instalar: ")
+        let programa = 78
+        if(programa <= (this.#armazenamento.capacidade - this.#armazenamento.espacoultilizado)){
+            listasoft.push(nomeinserir)
+            this.#armazenamento.espacoultilizado = this.#armazenamento.espacoultilizado  + 78
+            console.log(`Programa: ${nomeinserir} Instalado!`)
+        }else{
+            console.log("\nVocê não possuir armazenamento suficiente!\n")
+        }   
+    }
+    listasoftare(){
+        console.log(listasoft)
+    }
+    removersoftware(){
+        console.log(listasoft)
+        let nomeremover = prompt("Digite o nome do programa que deseja desinstalar ")
+        let indice = listasoft.indexOf(nomeremover)
+        if(indice > -1){
+            listasoft.splice(indice, 1)
+            this.#armazenamento.espacoultilizado = this.#armazenamento.espacoultilizado  - 78
+        }else{
+            console.log("Programa invalido")
+        }
     }
 }
