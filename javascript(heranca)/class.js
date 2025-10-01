@@ -2,9 +2,7 @@ import PromptSync from "prompt-sync" // Importe do prompt
 const prompt = PromptSync() // variavel do prompt
 
 export class Pessoa{
-    nome
     #cpf
-    data_nascimento
     constructor(nome, cpf, data_nascimento){
         this.nome = nome
         this.#cpf = cpf
@@ -20,13 +18,11 @@ export class Pessoa{
         console.log(`
         Nome: ${this.nome}
         Cpf: ${this.#cpf}
-        Data de nascimento: ${this.data_nascimento}
-        Cargo: ${this.cargo}    
+        Data de nascimento: ${this.data_nascimento}    
         `)
     }
 }
 export class Funcionario extends Pessoa{
-    cargo
     #salario
     #matricula
     constructor(nome, cpf, data_nascimento, cargo, salario, matricula){
@@ -41,7 +37,7 @@ export class Funcionario extends Pessoa{
     get salario(){
         return this.#salario
     }
-    set matriculua(matriculapessoa){
+    set matricula(matriculapessoa){
         this.#matricula = matriculapessoa
     }
     get matricula(){
@@ -53,13 +49,13 @@ export class Funcionario extends Pessoa{
     }
 }
 export class Gerente extends Funcionario{
-    constructor(cargo, salario, matricula, setor, quantidadeequipe){
-        super (cargo, salario, matricula)
+    constructor(nome, cpf, data_nascimento, cargo, salario, matricula, setor, quantidadeequipe){
+        super (nome, cpf, data_nascimento, cargo, salario, matricula)
         this.setor = setor
         this.quantidadeequipe = quantidadeequipe
 
     }
-    calculobonificacao(){
+    calculobonificacao(){// esse aqui
         if(this.quantidadeequipe >= 10){
             let bonus = (this.salario * 0.15)
             console.log(`Seu salario é: ${this.salario} e sua bonificação é: ${bonus}`)
@@ -70,17 +66,20 @@ export class Gerente extends Funcionario{
     }
 }
 export class Diretor extends Funcionario{
-    #salario
-    #matricula
-    constructor(cargo, salario, matricula, participacaolucro, departamento, tempodirecao){
-        super (cargo, salario, matricula)
+    #participacaolucro
+    constructor(nome, cpf, data_nascimento, cargo, salario, matricula, participacaolucro, departamento, tempodirecao){
+        super (nome, cpf, data_nascimento, cargo, salario, matricula)
         this.cargo = cargo
-        this.#salario = salario
-        this.#matricula = matricula
-        this.participacaolucro = participacaolucro
+        this.#participacaolucro = participacaolucro
         this.departamento = departamento
         this.tempodirecao = tempodirecao
 
+    }
+    set participacaolucro(participacaolucrodiretor){
+        this.#participacaolucro = participacaolucrodiretor
+    }
+    get participacaolucro(){
+        return this.#participacaolucro
     }
     calculogratificacao(){
       let gratifica = prompt(`Tem direito a participação nos lucros? digite sim, ou não`)
@@ -96,5 +95,35 @@ export class Diretor extends Funcionario{
             let bonus = (this.salario * 0.15)
             console.log(`Seu salario é: ${this.salario} e sua gratificaçao é: ${bonus}`)
       }
+    }
+}
+
+export class Dono extends Pessoa{
+    #patrimonio
+    #participacaoAcionario
+    constructor(nome, cpf, data_nascimento, patrimonio, participacaolucro){
+        super(nome, cpf, data_nascimento)
+        this.#patrimonio = patrimonio
+        this.#participacaoAcionario = participacaolucro
+    }
+    set patrimonio(patrimoniodono){
+        this.#patrimonio = patrimoniodono
+    }
+    get patrimonio(){
+        return this.#patrimonio
+    }
+    set participacaolucro(participacaolucrodono){
+        this.#participacaoAcionario = participacaolucrodono
+    }
+    get participacaolucro(){
+        return this.#participacaoAcionario
+    }
+    investir(valor){
+        valor = prompt("Digite o valor que deseja investir: ")
+        console.log("Valor investido é de: ", valor)
+    }
+    retirarlucros(valor){
+        valor = prompt("Digite o valor que deseja remover: ")
+        console.log("Valor retirardo:", valor)
     }
 }
