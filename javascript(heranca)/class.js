@@ -44,8 +44,10 @@ export class Funcionario extends Pessoa{
         return this.#matricula
     }
     calculo_horaextra(){
-        let horasextra = prompt("Digita a quantida de horas extrar: ")
-        this.#salario + (horasextra * 15)
+        let horasextra = Number (prompt("Digita a quantida de horas extrar: "))
+        let extra = horasextra * 15
+        this.#salario = this.#salario + extra
+        console.log(`A quantidade de horas extrar é: R$${extra} Somando ao Salario fica: R$${this.#salario}`)
     }
 }
 export class Gerente extends Funcionario{
@@ -58,10 +60,10 @@ export class Gerente extends Funcionario{
     calculobonificacao(){// esse aqui
         if(this.quantidadeequipe >= 10){
             let bonus = (this.salario * 0.15)
-            console.log(`Seu salario é: ${this.salario} e sua bonificação é: ${bonus}`)
+            console.log(`Seu salario é: R$${this.salario} e sua bonificação é: R$${bonus}`)
         }else{
             let bonus = (this.salario * 0.07)
-            console.log(`Seu salario é: ${this.salario} e sua bonificação é: ${bonus}`)
+            console.log(`Seu salario é: R$${this.salario} e sua bonificação é: R$${bonus}`)
         }
     }
 }
@@ -82,22 +84,24 @@ export class Diretor extends Funcionario{
         return this.#participacaolucro
     }
     calculogratificacao(){
-      let gratifica = prompt(`Tem direito a participação nos lucros? digite sim, ou não`)
+      let gratifica = prompt(`Tem direito a participação nos lucros? digite sim, ou não: `)
       if(gratifica == 'sim'){
             if(this.tempodirecao > 5){
                 let bonus = (this.salario * 0.30)
-                console.log(`Seu salario é: ${this.salario} e sua gratificaçao é: ${bonus}`)
+                console.log(`Seu salario é: R$${this.salario} e sua gratificaçao é: R$${bonus}`)
+            }else if(this.tempodirecao > 2 && this.tempodirecao < 5){
+                let bonus = (this.salario * 0.25)
+                console.log(`Seu salario é: R$${this.salario} e sua gratificaçao é: R$${bonus}`)
             }else if(this.tempodirecao < 2){
                 let bonus = (this.salario * 0.20)
-                console.log(`Seu salario é: ${this.salario} e sua gratificaçao é: ${bonus}`)
+                console.log(`Seu salario é: R$${this.salario} e sua gratificaçao é: R$${bonus}`)                
             }
       }else if(gratifica == 'não'){
             let bonus = (this.salario * 0.15)
-            console.log(`Seu salario é: ${this.salario} e sua gratificaçao é: ${bonus}`)
+            console.log(`Seu salario é: R$${this.salario} e sua gratificaçao é: R$${bonus}`)
       }
     }
 }
-
 export class Dono extends Pessoa{
     #patrimonio
     #participacaoAcionario
