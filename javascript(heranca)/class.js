@@ -1,6 +1,7 @@
 import PromptSync from "prompt-sync" // Importe do prompt
 const prompt = PromptSync() // variavel do prompt
-
+let horasextra
+let extra = 0
 export class Pessoa{
     #cpf
     constructor(nome, cpf, data_nascimento){
@@ -44,10 +45,17 @@ export class Funcionario extends Pessoa{
         return this.#matricula
     }
     calculo_horaextra(){
-        let horasextra = Number (prompt("Digita a quantida de horas extrar: "))
-        let extra = horasextra * 15
+        horasextra = Number (prompt("Digita a quantida de horas extrar: "))
+        extra = (horasextra * 15)
         this.#salario = this.#salario + extra
         console.log(`A quantidade de horas extrar é: R$${extra} Somando ao Salario fica: R$${this.#salario}`)
+    }
+    calcularSalario(){
+        let totalbruto = this.#salario + extra
+        let inss = totalbruto * 0.09
+        let liquido = totalbruto - inss
+        console.log(liquido)
+        
     }
 }
 export class Gerente extends Funcionario{
@@ -83,9 +91,8 @@ export class Diretor extends Funcionario{
     get participacaolucro(){
         return this.#participacaolucro
     }
-    calculogratificacao(){
-      let gratifica = prompt(`Tem direito a participação nos lucros? digite sim, ou não: `)
-      if(gratifica == 'sim'){
+    calculogratificacao(){     
+      if(this.#participacaolucro == 'sim'){
             if(this.tempodirecao > 5){
                 let bonus = (this.salario * 0.30)
                 console.log(`Seu salario é: R$${this.salario} e sua gratificaçao é: R$${bonus}`)
@@ -124,7 +131,11 @@ export class Dono extends Pessoa{
     }
     investir(valor){
         valor = prompt("Digite o valor que deseja investir: ")
-        console.log("Valor investido é de: ", valor)
+        if(valor > 0){
+            console.log("Valor investido é de: ", valor)
+        }else{
+            console.log("O valor precisar ser maior que zero!")
+        }
     }
     retirarlucros(valor){
         valor = prompt("Digite o valor que deseja remover: ")
