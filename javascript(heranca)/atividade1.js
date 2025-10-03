@@ -20,8 +20,10 @@ do{
             funcionario1.cargo = prompt("Cargo: ")
             funcionario1.salario = Number (prompt("Salario: "))
             funcionario1.matricula = prompt("Matricula: ")
-            funcionario1.calculo_horaextra()
-            funcionario1.calcularSalario()
+            funcionario1.extra = Number (prompt("Digita a quantida de horas extrar: "))
+            funcionario1.gerarContracheque()
+            //funcionario1.calculo_horaextra()
+            //funcionario1.calcularSalario()
         break
         case '2':
             console.log("Digite os dados do gerencia")

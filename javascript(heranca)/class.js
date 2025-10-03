@@ -1,7 +1,6 @@
 import PromptSync from "prompt-sync" // Importe do prompt
 const prompt = PromptSync() // variavel do prompt
-let horasextra
-let extra = 0
+
 export class Pessoa{
     #cpf
     constructor(nome, cpf, data_nascimento){
@@ -26,6 +25,7 @@ export class Pessoa{
 export class Funcionario extends Pessoa{
     #salario
     #matricula
+    extra
     constructor(nome, cpf, data_nascimento, cargo, salario, matricula){
         super (nome, cpf, data_nascimento)
         this.cargo = cargo
@@ -44,26 +44,49 @@ export class Funcionario extends Pessoa{
     get matricula(){
         return this.#matricula
     }
-    calculo_horaextra(){
-        horasextra = Number (prompt("Digita a quantida de horas extrar: "))
-        extra = (horasextra * 15)
-        this.#salario = this.#salario + extra
-        console.log(`A quantidade de horas extrar é: R$${extra} Somando ao Salario fica: R$${this.#salario}`)
+    calculo_horaextra(){       
+        let horasextra = (this.extra * 15)
+        return horasextra
+        //let salario = this.#salario + horasextra
+        //console.log(`A quantidade de horas extrar é: R$${horasextra} Somando ao Salario fica: R$${salario}`)
     }
-    calcularSalario(){
-        let totalbruto = this.#salario + extra
-        let inss = totalbruto * 0.09
-        let liquido = totalbruto - inss
-        console.log(liquido)
-        
+    calcularSalario(){       
+        if(this.extra > 0){
+            let inss = this.#salario * 0.09 // desconto do inss
+            let salario = this.#salario - inss// salario receber o salario - inss
+            let horasganha = (salario + this.extra * 15)
+            console.log("Seu salrio liquido é: ", horasganha)
+        }else if(this.extra == 0){
+            let inss = this.#salario * 0.075 // desconto do inss
+            let salario = this.#salario - inss// salario receber o salario - inss
+            let horasganha = (salario + this.extra * 15)
+            console.log("Seu salario liquido é: ", horasganha) 
+        }       
     }
+    gerarContracheque(){
+        if()
+        console.log(`
+        ====CONTRACHEQUE====
+        Salario: R$${this.#salario}
+        Quantidade de horas extrar: ${this.extra}
+        Valor de horas extrar: R$${this.calculo_horaextra()}
+        Deconto inss : R$${}     
+            `)
+    }
+    // mostrar_informacoes(){
+    //     super.mostrar_informacoes()
+    //     console.log(`
+    //     Nome: ${this.nome}
+    //     Cpf: ${this.#cpf}
+    //     Data de nascimento: ${this.data_nascimento}    
+    //     `)
+    // }
 }
 export class Gerente extends Funcionario{
     constructor(nome, cpf, data_nascimento, cargo, salario, matricula, setor, quantidadeequipe){
         super (nome, cpf, data_nascimento, cargo, salario, matricula)
         this.setor = setor
         this.quantidadeequipe = quantidadeequipe
-
     }
     calculobonificacao(){// esse aqui
         if(this.quantidadeequipe >= 10){
@@ -83,7 +106,6 @@ export class Diretor extends Funcionario{
         this.#participacaolucro = participacaolucro
         this.departamento = departamento
         this.tempodirecao = tempodirecao
-
     }
     set participacaolucro(participacaolucrodiretor){
         this.#participacaolucro = participacaolucrodiretor
@@ -103,7 +125,7 @@ export class Diretor extends Funcionario{
                 let bonus = (this.salario * 0.20)
                 console.log(`Seu salario é: R$${this.salario} e sua gratificaçao é: R$${bonus}`)                
             }
-      }else if(gratifica == 'não'){
+      }else if(this.#participacaolucro == 'não'){
             let bonus = (this.salario * 0.15)
             console.log(`Seu salario é: R$${this.salario} e sua gratificaçao é: R$${bonus}`)
       }
