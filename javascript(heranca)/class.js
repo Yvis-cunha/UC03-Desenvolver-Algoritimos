@@ -47,29 +47,32 @@ export class Funcionario extends Pessoa{
     calculo_horaextra(){       
         let horasextra = (this.extra * 15)
         return horasextra
-        //let salario = this.#salario + horasextra
-        //console.log(`A quantidade de horas extrar é: R$${horasextra} Somando ao Salario fica: R$${salario}`)
+        // let salario = this.#salario + horasextra
+        // console.log(`A quantidade de horas extrar é: R$${horasextra} Somando ao Salario fica: R$${salario}`)
     }
-    calcularSalario(){       
+    calcularSalario(){
+            let salario = (this.#salario + this.calculo_horaextra())-this.descontoinss()
+            // console.log(salario)
+            return salario      
+    }
+    descontoinss(){
         if(this.extra > 0){
-            let inss = this.#salario * 0.09 // desconto do inss
-            let salario = this.#salario - inss// salario receber o salario - inss
-            let horasganha = (salario + this.extra * 15)
-            console.log("Seu salrio liquido é: ", horasganha)
-        }else if(this.extra == 0){
-            let inss = this.#salario * 0.075 // desconto do inss
-            let salario = this.#salario - inss// salario receber o salario - inss
-            let horasganha = (salario + this.extra * 15)
-            console.log("Seu salario liquido é: ", horasganha) 
-        }       
+            let inss = this.#salario * 0.09
+            return inss
+        }else{
+            let inss = this.#salario * 0.075
+            return inss
+        }
+    
     }
     gerarContracheque(){
         console.log(`
         ====CONTRACHEQUE====
-        Salario: R$${this.#salario}
-        Quantidade de horas extrar: ${this.extra}
-        Valor de horas extrar: R$${this.calculo_horaextra()}
-        Deconto inss : R$${this.calcularSalario()}     
+        Salario bruto: R$${this.#salario}
+        Quantidade de horas extrar: ${this.extra}h
+        Saldo de horas extrar: R$${this.calculo_horaextra()}
+        Deconto inss : R$${this.descontoinss()}
+        Salario liquido: R$${this.calcularSalario()}     
             `)
     }
     // mostrar_informacoes(){

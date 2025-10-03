@@ -21,9 +21,23 @@ do{
             funcionario1.salario = Number (prompt("Salario: "))
             funcionario1.matricula = prompt("Matricula: ")
             funcionario1.extra = Number (prompt("Digita a quantida de horas extrar: "))
-            funcionario1.gerarContracheque()
-            //funcionario1.calculo_horaextra()
-            //funcionario1.calcularSalario()
+            let opcao
+            do{
+                opcao = prompt(`
+            ===Operação===
+            1- Calculo do salario
+            2- Contra cheque
+            3- Sair    
+                `)
+            switch(opcao){
+                case '1':
+                    console.log(`Seu salario é: R$${funcionario1.calcularSalario()}`)
+                break
+                case '2':
+                    funcionario1.gerarContracheque()
+                break        
+            }
+            }while(opcao != 0)
         break
         case '2':
             console.log("Digite os dados do gerencia")
