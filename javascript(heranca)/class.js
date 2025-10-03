@@ -64,13 +64,12 @@ export class Funcionario extends Pessoa{
         }       
     }
     gerarContracheque(){
-        if()
         console.log(`
         ====CONTRACHEQUE====
         Salario: R$${this.#salario}
         Quantidade de horas extrar: ${this.extra}
         Valor de horas extrar: R$${this.calculo_horaextra()}
-        Deconto inss : R$${}     
+        Deconto inss : R$${this.calcularSalario()}     
             `)
     }
     // mostrar_informacoes(){
