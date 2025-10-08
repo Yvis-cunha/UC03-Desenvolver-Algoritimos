@@ -104,7 +104,7 @@ export class Diretor extends Funcionario{
     #participacaolucro
     constructor(nome, cpf, data_nascimento, cargo, salario, matricula, participacaolucro, departamento, tempodirecao){
         super (nome, cpf, data_nascimento, cargo, salario, matricula)
-        this.cargo = cargo
+        this.cargo = cargocls
         this.#participacaolucro = participacaolucro
         this.departamento = departamento
         this.tempodirecao = tempodirecao
