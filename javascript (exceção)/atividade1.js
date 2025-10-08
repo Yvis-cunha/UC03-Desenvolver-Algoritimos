@@ -4,8 +4,6 @@ import {contaBacaria} from "./class.js"
 
 const cliente1 = new contaBacaria(prompt('Nome Titular:'),Number (prompt('Saldo da conta:')),prompt('Número da conta:'),prompt('Número da agencia:'),prompt('Data da abertura da conta:'))
 
-console.log(`O nome do titular é: ${cliente1.NomeTitular}`)
-
 let opcao
 do{
     opcao = prompt(`
@@ -18,12 +16,13 @@ do{
     Escolha uma opção:`)
     switch(opcao){
         case '1':
-            try{
+            try{ // ele tentar executar a class
             cliente1.sacar()
-            }catch(valor){
+            }catch(valor){// esse é executado caso ele não consiga executar o código, essa variavel
                 console.error(valor.message)
             }
         break
+
         case '2':
             try{
             cliente1.depositar()
@@ -31,11 +30,17 @@ do{
                 console.error(valor.message)
             }
         break
+
         case '3':
             cliente1.versaldo()
         break
         case '4':
-            cliente1.calcularrendimento()
-        break           
+            try{
+                cliente1.calcularrendimento()
+            }catch(valor){
+                console.error(valor.message)
+            }
+        break     
+
     }    
 }while(opcao != '0')

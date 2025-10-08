@@ -43,17 +43,21 @@ export class contaBacaria{
         if(valodeposito > 0 ){
             this.#saldo = (this.#saldo + valodeposito)
         }else{
-            throw new contafacil('Error! O valor é inserido é invalido!')
+            throw new contafacil('Error! O valor inserido é invalido!')
             //console.log(`O valor inserido é inválido`)
         }
     }
     calcularrendimento(){
-        this.#saldo = (this.#saldo * 0.10)
-        console.log(`Rendimento da conta: ${this.#saldo}`)
+        if(this.saldo > 0){
+            let rendimento = (this.#saldo * 0.10).toFixed(2)
+            console.log(`Rendimento da conta: R$${rendimento}`)
+        }else{
+            throw new contafacil('Error! Para que sua conta tenha redimento, precisar ter valor em conta!')
+        }
+
     }
     versaldo(){
         console.log(`Seu saldo atual é: ${this.#saldo}`)
     }
-
   
 }
