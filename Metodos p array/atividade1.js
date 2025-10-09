@@ -10,7 +10,7 @@ let arraypronta = []
 console.log("====Folha do senac====")
 texto = prompt("Escreva o texto para publicação: ")
 
-arraypalvras = texto.split(" ") //pega o texto recebido do prompt e adiciona dentro da array separado por palvras que no caso é os espaços
+arraypalvras = texto.split(" ") //pega, o texto recebido do prompt e adiciona dentro da array separado por palvras que no caso é os espaços
 
 for(contador=0; contador < arraypalvras.length; contador=contador+1){
    
