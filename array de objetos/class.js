@@ -1,7 +1,7 @@
 import PromptSync from "prompt-sync" // Importe do prompt
 const prompt = PromptSync() // variavel do prompt
 
-export class cliente{
+export class Cliente{
     #cpf
     #contato
     constructor(cpf, nome, contato){
@@ -35,10 +35,37 @@ export class Reserva{
         this.cliente = cliente
     }
 }
-export class hotel{
-    constructor(nome, quartos, reservas){
+export class Hotel{
+    constructor(nome, quartos = [], reservas = []){
         this.nome = nome
         this.quartos = quartos
         this.reservas = reservas
     }
+    adicionarquarto(numero){
+        this.quartos.push(numero)
+        console.log("Quarto adicionado!")
+    }
+    reservarQuarto(quarto, data, cliente){
+        const novaReserva = new Reserva(quarto, data, cliente);
+        this.reservas.push(novaReserva)
+
+    }
+    cancelarReserva(quarto, data, cliente){
+
+    }
+    listaQuartosDisponiveis(){
+        console.log(this.quartos)
+    }
+    listarReservas(){
+
+    }
+    informacoesReserva(){
+
+    }
+}
+export class ErroHotel extends Error{
+    constructor(message){
+        super(message)
+    }
+
 }
