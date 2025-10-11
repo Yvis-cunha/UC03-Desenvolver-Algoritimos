@@ -27,16 +27,16 @@ opcao = prompt(`
             `)
             switch(opcao2){
                 case '1':
-                    hotel1.adicionarquarto(prompt("Digite a quantidade de quartos: "))
+                    hotel1.adicionarquarto()
                 break
                 case '2':
-                    //cancelar reserva
+                    // hotel1.cancelar reserva
                 break
                 case '3':
                     hotel1.listaQuartosDisponiveis()
                 break
                 case '4':
-                    //reservar quarto
+                    hotel1.reservarQuarto()
                 break        
                 }            
             }while(opcao2 != '5')

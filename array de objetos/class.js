@@ -16,7 +16,7 @@ export class Cliente{
         return this.#cpf
     }
     set contato(contatocliente){
-        this.contato = contatocliente
+        this.#contato = contatocliente
     }
     get contato(){
         return this.#contato
@@ -41,13 +41,26 @@ export class Hotel{
         this.quartos = quartos
         this.reservas = reservas
     }
-    adicionarquarto(numero){
-        this.quartos.push(numero)
-        console.log("Quarto adicionado!")
+    adicionarquarto(numero, tipo){
+        const novoquarto = new Quarto(prompt("Digite o numero do quarto: "),prompt("Digite o tipo do quarto simples ou de luxo: "))        
+        this.quartos.push(novoquarto)
+        console.log(`Quarto numero: ${numero} Tipo: ${tipo} adicionado!`)
     }
-    reservarQuarto(quarto, data, cliente){
-        const novaReserva = new Reserva(quarto, data, cliente);
-        this.reservas.push(novaReserva)
+    reservarQuarto(nome, cpf, contato){
+        nome = prompt("Digite seu nome: ")
+        cpf = prompt("Digite seu cpf: ")
+        contato = prompt("Digite seu contato: ")
+        const cliente = new Cliente(cpf, nome, contato)
+        let numQuarto = prompt("Digite o número do quarto: ")
+        const quartoEncontrado = this.quartos.find(q => q.numero === numQuarto)
+        if(!quartoEncontrado){   
+            console.log("Quarto não encontrado!")   
+        }
+        const reserva = new Reserva(quartoEncontrado, cliente)
+        this.reservas.push(reserva)
+        console.log(this.reservas)
+        
+
 
     }
     cancelarReserva(quarto, data, cliente){
