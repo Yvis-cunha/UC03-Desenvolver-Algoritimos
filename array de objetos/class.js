@@ -47,27 +47,7 @@ export class Hotel{
         console.log(`Quarto numero: ${numero} Tipo: ${tipo} adicionado!`)
     }
     reservarQuarto(){
-        const cliente1 = new Cliente()
-        cliente1.cpf = Number(prompt("Digite seu cpf: "))
-        cliente1.nome = prompt("Digite seu nome: ")        
-        cliente1.contato = Number (prompt("Digite seu contato: "))
-        this.reservas.push(`cliente: ${cliente1.nome}, CPF: ${cliente1.cpf}, Contato: ${cliente1.contato}`)
-        console.log(this.reservas)
-        // const reserva1 = new Reserva()
-        // reserva1.datareserva = prompt("Digite a data:")
-        // this.reservas.push(reserva1)
-        // console.log(this.reservas)
-        
-        // let numQuarto = Number (prompt("Digite o número do quarto: "))
-        // const quartoEncontrado = this.quartos.find(q => q.numero === numQuarto)
-        // if(!quartoEncontrado){   
-        //     console.log("Quarto não encontrado!")   
-        // }
-        // const reserva = new Reserva(quartoEncontrado, cliente)
-        // this.reservas.push(reserva)
-        // console.log(this.reservas)
-        
-
+    
 
     }
     cancelarReserva(quarto, data, cliente){
