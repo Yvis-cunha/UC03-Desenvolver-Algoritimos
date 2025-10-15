@@ -23,7 +23,8 @@ opcao = prompt(`
             2- Cancelar Reservas
             3- Lista Quartos disponivel
             4- Reserva Quarto
-            5- Volta a tela inicial
+            5- Lista reservas
+            6- Volta a tela inicial
             `)
             switch(opcao2){
                 case '1':
@@ -37,9 +38,11 @@ opcao = prompt(`
                 break
                 case '4':
                     hotel1.reservarQuarto()
-                break        
+                break
+                case '5':
+                    hotel1.listarReservas()        
                 }            
-            }while(opcao2 != '5')
+            }while(opcao2 != '6')
                  break
 
         case '2':
@@ -66,12 +69,3 @@ opcao = prompt(`
                  break
 }   
 }while(opcao !=3)
-
-
-
-
-
-
-
-
-

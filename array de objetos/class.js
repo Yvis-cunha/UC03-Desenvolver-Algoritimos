@@ -42,13 +42,22 @@ export class Hotel{
         this.reservas = reservas
     }
     adicionarquarto(numero, tipo){
-        const novoquarto = new Quarto(prompt("Digite o numero do quarto: "),prompt("Digite o tipo do quarto simples ou de luxo: "))        
+        const novoquarto = new Quarto(Number (prompt("Digite o numero do quarto: ")),prompt("Digite o tipo do quarto simples ou de luxo: "))        
         this.quartos.push(novoquarto)
         console.log(`Quarto numero: ${numero} Tipo: ${tipo} adicionado!`)
     }
-    reservarQuarto(){
-    
+    reservarQuarto(quarto, data, cliente){
+        const quartodesejado = Number (prompt("Digite o número do quarto que deseja: "))
+        const indicequarto = this.quartos.findIndex(q => q.numero === quartodesejado)
+        //console.log(indicequarto)
+        if(indicequarto !== -1){ //aqui se o indice for diferente de -1 ele encontrou por tanto posso comparar
+            const quartomovido = this.quartos.splice(indicequarto, 1) //aqui o splice verifica dentro do array quartos, o indice e remove uma vez
+            this.reservas.push(quartomovido[0])
 
+            console.log("Quarto disponivel")
+        }else{
+            console.log("Não disponivel")
+        }
     }
     cancelarReserva(quarto, data, cliente){
 
@@ -57,7 +66,7 @@ export class Hotel{
         console.log(this.quartos)
     }
     listarReservas(){
-
+        console.log(this.reservas)
     }
     informacoesReserva(){
 
