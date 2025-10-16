@@ -83,9 +83,17 @@ export class ErroHotel extends Error{
 }
 
 export function criarRelatorio(quartos){
-let dadosrelatiorio = ''    
+let dadosrelatiorio = ''   
 quartos.forEach(quarto => {
-    dadosrelatiorio = dadosrelatiorio + `Quarto nº ${quarto.numero}\n
+    dadosrelatiorio = dadosrelatiorio + `Quarto nº ${quarto.numero} Tipo: ${quarto.tipo}
     `})
     fs.appendFileSync('relatório.txt', dadosrelatiorio, "utf-8")
+}
+export function lerArquivo(){
+    try{
+        let dados = fs.readFileSync('relatório.txt', 'utf-8')
+        console.log('Conteudo: ', dados)
+    }catch(error){
+        console.log(error.message)
+    }
 }

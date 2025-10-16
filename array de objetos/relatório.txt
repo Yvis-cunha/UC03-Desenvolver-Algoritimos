@@ -1,31 +1,4 @@
-Quarto nº 100
-
-    Quarto nº 100
-
-    Quarto nº 100
-
-    Quarto nº 100
-
-    Quarto nº 100
-
-    Quarto nº 100
-
-    Quarto nº 100
-
-    Quarto nº 100
-
-    Quarto nº 100
-
-    Quarto nº 100
-
-    Quarto nº 100
-
-    Quarto nº 100
-
-    Quarto nº 10
-
-    Quarto nº 20
-
-    Quarto nº 30
-
+Quarto nº 100 Tipo: luxo
+    Quarto nº 200 Tipo: simples
+    undefinedQuarto nº 100 Tipo: 
     
