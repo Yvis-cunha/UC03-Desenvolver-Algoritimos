@@ -1,5 +1,6 @@
 import PromptSync from "prompt-sync" // Importe do prompt
 const prompt = PromptSync() // variavel do prompt
+import fs from 'fs'
 
 export class Cliente{
     #cpf
@@ -42,7 +43,7 @@ export class Hotel{
         this.reservas = reservas
     }
     adicionarquarto(numero, tipo){
-        const novoquarto = new Quarto(Number (prompt("Digite o numero do quarto: ")),prompt("Digite o tipo do quarto simples ou de luxo: "))        
+        const novoquarto = new Quarto(numero, tipo)       
         this.quartos.push(novoquarto)
         console.log(`Quarto numero: ${numero} Tipo: ${tipo} adicionado!`)
     }
@@ -54,9 +55,11 @@ export class Hotel{
             const quartomovido = this.quartos.splice(indicequarto, 1) //aqui o splice verifica dentro do array quartos, o indice e remove uma vez
             this.reservas.push(quartomovido[0])
 
-            console.log("Quarto disponivel")
+            
+            console.log(`Quarto numero: ${quartodesejado}, Reservado com sucesso!`)
         }else{
-            console.log("Não disponivel")
+            throw new ErroHotel("Error! O Quarto que deseja reserva, não está disponivel!")
+            // console.log("Não disponivel")
         }
     }
     cancelarReserva(quarto, data, cliente){
@@ -77,4 +80,12 @@ export class ErroHotel extends Error{
         super(message)
     }
 
+}
+
+export function criarRelatorio(quartos){
+let dadosrelatiorio = ''    
+quartos.forEach(quarto => {
+    dadosrelatiorio = dadosrelatiorio + `Quarto nº ${quarto.numero}\n
+    `})
+    fs.appendFileSync('relatório.txt', dadosrelatiorio, "utf-8")
 }

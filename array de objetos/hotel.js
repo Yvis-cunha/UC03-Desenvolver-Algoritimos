@@ -1,6 +1,6 @@
 import PromptSync from "prompt-sync" // Importe do prompt
 const prompt = PromptSync() // variavel do prompt
-import {Hotel, Cliente, Quarto, Reserva, ErroHotel} from "./class.js"
+import {Hotel, Cliente, Quarto, Reserva, ErroHotel, criarRelatorio} from "./class.js"
 
 const hotel1 = new Hotel()
 
@@ -20,7 +20,7 @@ opcao = prompt(`
             opcao2 = prompt(`
             ==SISTEMA DE GERENCIAMENTO==
             1- Adicionar Quartos
-            2- Cancelar Reservas
+            2- Relatorio//Cancelar Reservas
             3- Lista Quartos disponivel
             4- Reserva Quarto
             5- Lista reservas
@@ -28,17 +28,23 @@ opcao = prompt(`
             `)
             switch(opcao2){
                 case '1':
-                    hotel1.adicionarquarto()
+                    const numequarto = Number (prompt("Digite o numero do quarto: "))
+                    const tipoquarto = prompt("Digite o tipo do quarto: ")
+                    hotel1.adicionarquarto(numequarto, tipoquarto)
                 break
                 case '2':
-                    // hotel1.cancelar reserva
+                    criarRelatorio(hotel1.quartos)
                 break
                 case '3':
                     hotel1.listaQuartosDisponiveis()
                 break
                 case '4':
+                    try{
                     hotel1.reservarQuarto()
-                break
+                    }catch(error){
+                        console.error(error.message)
+                    }    
+                    break
                 case '5':
                     hotel1.listarReservas()        
                 }            
